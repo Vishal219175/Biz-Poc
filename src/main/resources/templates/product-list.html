@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Product List</title>
+</head>
+<body>
+<h1>Products</h1>
+<ul>
+    <li th:each="product : ${products}">
+        <span th:text="${product.name}"></span> -
+        <span th:text="${product.price}"></span>
+    </li>
+</ul>
+
+<form method="post" th:action="@{/products}">
+    <input type="text" name="name" placeholder="Name" />
+    <input type="text" name="description" placeholder="Description" />
+    <input type="number" name="price" placeholder="Price" />
+    <button type="submit">Add Product</button>
+</form>
+</body>
+</html>
