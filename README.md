@@ -1,3 +1,50 @@
+Steps For Mongo and Solr Setup :- 
+* Mongo Setup
+1) Download the Mongodb, MongoDB Compass and MongoDB NoSQL Booster, Mongo shell from Google chrome / EDGE
+
+2) Go to Installation Directory of Mongodb for example :- C:\Program Files\MongoDB\Server\8.0\bin
+Update the mongod.conf file :- for example with this and remember Replication setting is needed for solr syncing to work 
+
+# Where and how to store data.
+storage:
+  dbPath: C:\\Program Files\\MongoDB\\Server\\8.0\\data
+
+# Where to write logging data.
+systemLog:
+  destination: file
+  logAppend: true
+  path: C:\\Program Files\\MongoDB\\Server\\8.0\\log\\mongod.log
+
+# Network interfaces
+net:
+  port: 27017
+  bindIp: 127.0.0.1
+
+# Replication settings
+replication:
+  replSetName: rs0
+
+3) Go to Mongo Shell :- 
+
+Step 1) Paste the connection String you used in the application properties to connect o database for example :- mongodb://localhost:27017/mymvcdba
+
+Step 2) Initialize the Replica for syncing using this command :- rs.initiate()
+
+Step 3) Check the status of Replica :- rs.status()
+
+* Solr Setup
+1) Download Solr and solr only works on JDK 1.8/ Java 8 so Update the path variable of Java to Java 8
+
+2) Go to the directory where you have installed solr and run this command to start the solr :-
+
+For example :- C:\Users\Vishal Nagdev\Downloads\solr-8.11.4\solr-8.11.4\bin>
+to start the solr :- solr start 
+
+to stop the solr :- solr stop -p 8983
+
+to restart the solr :- solr restart -p 8983
+
+
 Queries to use in Mongodb :- 
 
 1. Find All Products:
